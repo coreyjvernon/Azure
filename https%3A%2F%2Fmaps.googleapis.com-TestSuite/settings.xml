@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="75aac362-7202-422b-b222-ac9552ce6e2a" name="https://maps.googleapis.com TestSuite" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="75aac362-7202-422b-b222-ac9552ce6e2afileName">https%3A%2F%2Fmaps.googleapis.com-TestSuite</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="5b3090af-d642-4521-809e-3fc13288ba1d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

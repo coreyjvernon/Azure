@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b76ce7a8-bd56-4cd4-93e3-7f074231e2c5" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="https://maps.googleapis.com TestCase 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b76ce7a8-bd56-4cd4-93e3-7f074231e2c5fileName">https%3A%2F%2Fmaps.googleapis.com-TestCase-1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="2f321384-97ad-4a07-9947-834084655027">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>-1</lastSelectedProperty>
+          <GeneratorType0>CITY</GeneratorType0>
+          <PropertyName0>address</PropertyName0>
+          <repetitionCountaddress>0</repetitionCountaddress>
+          <repeatValuesaddress>false</repeatValuesaddress>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>address</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Request 1" id="9b7025b2-164a-4bd8-b5ed-4092e250970a">
+    <con:settings/>
+    <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="12a85783-5cb2-4674-9a31-a1aa805a970f" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="43da6e5d-2d2d-48cc-828d-cfaef98c9f7a" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="address" value="${DataSource#address}"/>
+          <con:entry key="key" value="AIzaSyCdjFI6DISXPmIzz4ol-P6VyUg9U8feZtw"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>address</con:entry>
+          <con:entry>key</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="5b3090af-d642-4521-809e-3fc13288ba1d">
+            <con:authProfile>bp824</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="ec849f13-c906-46d2-bda6-d8c151bad4b1">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>Request 1</targetStep>
+      <discardResults>false</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="5b3090af-d642-4521-809e-3fc13288ba1d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>
